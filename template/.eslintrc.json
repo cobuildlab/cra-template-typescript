@@ -1,0 +1,138 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "jest": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "extends": [
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "react-app",
+    "plugin:jsx-a11y/recommended",
+    "prettier",
+    "prettier/react",
+    "prettier/@typescript-eslint",
+    "plugin:jsdoc/recommended"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "jsx-a11y",
+    "react-hooks",
+    "prettier",
+    "import",
+    "jsdoc",
+    "jest"
+  ],
+  "globals": {
+    "JSX": true
+  },
+  "rules": {
+    "radix": "off",
+    "arrow-parens": "error",
+    "no-prototype-builtins": "off",
+    "import/no-default-export": "error",
+    "import/prefer-default-export": "off",
+    "no-use-before-define": [
+      "error",
+      {
+        "functions": false,
+        "classes": true,
+        "variables": true
+      }
+    ],
+    "@typescript-eslint/quotes": [
+      "error",
+      "single"
+    ],
+    "@typescript-eslint/explicit-function-return-type": [
+      "error",
+      {
+        "allowExpressions": true,
+        "allowTypedFunctionExpressions": true
+      }
+    ],
+    "@typescript-eslint/no-use-before-define": [
+      "error",
+      {
+        "functions": false,
+        "classes": true,
+        "variables": true,
+        "typedefs": true
+      }
+    ],
+    "jsdoc/check-alignment": "error", // Recommended
+    "jsdoc/check-param-names": "error", // Recommended
+    "jsdoc/check-tag-names": "error", // Recommended
+    "jsdoc/check-types": "error", // Recommended
+    "jsdoc/implements-on-classes": "error", // Recommended
+    "jsdoc/newline-after-description": "error", // Recommended
+    "jsdoc/no-undefined-types": "error", // Recommended
+    "jsdoc/require-description-complete-sentence": "error",
+    "jsdoc/require-hyphen-before-param-description": "error",
+    "jsdoc/require-jsdoc": "error", // Recommended
+    "jsdoc/require-param": "error", // Recommended
+    "jsdoc/require-param-description": "error", // Recommended
+    "jsdoc/require-param-name": "error", // Recommended
+    "jsdoc/require-param-type": "error", // Recommended
+    "jsdoc/require-returns": "error", // Recommended
+    "jsdoc/require-returns-check": "error", // Recommended
+    "jsdoc/require-returns-description": "error", // Recommended
+    "jsdoc/require-returns-type": "error", // Recommended
+    "jsdoc/valid-types": "error", // Recommended
+    "indent": [
+      "error",
+      2
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "no-console": [
+      "error",
+      {
+        "allow": [
+          "warn",
+          "error",
+          "log"
+        ]
+      }
+    ],
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "none",
+        "ignoreRestSiblings": false
+      }
+    ],
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "react/prop-types": "off",
+    "react/destructuring-assignment": "off",
+    "react/no-unused-prop-types": "error",
+    "react/jsx-props-no-spreading": "off",
+    "react/require-default-props": [
+      "error",
+      {
+        "forbidDefaultForRequired": true
+      }
+    ],
+    "react/jsx-filename-extension": [
+      "warn",
+      {
+        "extensions": [
+          ".ts",
+          ".tsx"
+        ]
+      }
+    ]
+  }
+}
