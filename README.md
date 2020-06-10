@@ -1,4 +1,4 @@
-# Cobuildlab Typescript Template with Create React App
+# Cobuild Lab Typescript Template with Create React App
 
 To use this template, add `--template @cobuildlab/typescript` when creating a new app.
 
