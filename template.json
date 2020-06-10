@@ -3,7 +3,7 @@
     "private": true,
     "version": "1.0.0",
     "scripts": {
-      "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src/",
+      "eslint": "eslint --ext .js,.jsx,.ts,.tsx ./src/",
       "install:deps": "npm install typescript @testing-library/react @testing-library/user-event @testing-library/jest-dom",
       "install:devdeps": "cross-env HUSKY_SKIP_INSTALL=1 npm install --save-dev @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-config-airbnb-typescript eslint-config-prettier eslint-plugin-import eslint-plugin-jest eslint-plugin-jsdoc eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks husky lint-staged prettier prettier-eslint",
       "install:types": "npm install @types/jest @types/node @types/react @types/react-dom",
