@@ -34,6 +34,11 @@
   "globals": {
     "JSX": true
   },
+  "settings": {
+    "jsdoc": {
+      "mode": "typescript"
+    }
+  },
   "rules": {
     "radix": "off",
     "arrow-parens": "error",
@@ -48,6 +53,7 @@
         "variables": true
       }
     ],
+    "@typescript-eslint/no-floating-promises": "off",
     "@typescript-eslint/quotes": [
       "error",
       "single"
