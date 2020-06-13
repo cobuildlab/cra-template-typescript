@@ -23,7 +23,7 @@ rl.question(`create-react-typescript-app:\n Input the name of your project (this
   execSync(`git clone https://github.com/cobuildlab/create-react-typescript-app.git ${finalPath}`);
   console.log("create-react-typescript-app:\n Changing dir to: ", finalPath);
   process.chdir(finalPath);
-  console.log("create-react-typescript-app:\n Removing unnecessary files...",);
+  console.log("create-react-typescript-app:\n Borrando archivos innecesarios...",);
   rimraf.sync("./.git");
   rimraf.sync("./.github");
   rimraf.sync("./.gitignore");
@@ -33,21 +33,29 @@ rl.question(`create-react-typescript-app:\n Input the name of your project (this
   rimraf.sync("./package-lock.json");
   rimraf.sync("./index.js");
 
-  // En este punto solo que la carpeta /template
+  console.log("create-react-typescript-app:\n Renombrando la carpeta 'template' a 'docs' para evitar fallas en 'cra'...",);
+  execSync(`mv template docs`);
+
+  // En este punto solo que la carpeta /docs
   console.log("create-react-typescript-app:\n Volvemos al directorio previo: ", originalPath);
   process.chdir(originalPath);
   console.log("create-react-typescript-app:\n running create-react-app");
-  execSync(`npx create-react-app ${name} --template typescript`);
+  try {
+    execSync(`npx create-react-app ${name} --template typescript`);
+  }catch (e) {
+    console.log("create-react-typescript-app:\n create-react-app fallo:.", e);
+    process.exit(1);
+  }
   console.log("create-react-typescript-app:\n create-react-app exitoso...");
   console.log("create-react-typescript-app:\n entramos al directorio...");
   process.chdir(finalPath);
 
   // Mover template
-  const templatePath = path.join(finalPath, "template")
+  const templatePath = path.join(finalPath, "docs")
   console.log("create-react-typescript-app:\n Moviendo el contenido del template:", finalPath, templatePath);
   execSync(`mv ${templatePath}/{,.[^.]}* ${finalPath}`);
   console.log("create-react-typescript-app:\n Removing 'template' folder...",);
-  rimraf.sync("./template");
+  rimraf.sync("./docs");
   // Instalar dev dependecies
   console.log("create-react-typescript-app:\n Instalando nuevas dependencias con NPM... (Esto puede demorar)");
   execSync(`npm i --save-dev @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-config-airbnb-typescript eslint-config-prettier eslint-plugin-import eslint-plugin-jest eslint-plugin-jsdoc eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks husky lint-staged prettier prettier-eslint eslint-plugin-cypress`);
