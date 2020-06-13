@@ -20,10 +20,10 @@ rl.question(`create-react-typescript-app:\n Input the name of your project (this
   const originalPath = process.cwd();
   const finalPath = path.join(originalPath, name);
   console.log("create-react-typescript-app:\n Cloning the first template...");
-  execSync(`git clone https://github.com/cobuildlab/create-react-typescript-app.git ${finalPath}`);
+  execSync(`git clone https://github.com/cobuildlab/create-react-typescript-app.git ${finalPath}`, {stdio: 'inherit'});
   console.log("create-react-typescript-app:\n Changing dir to: ", finalPath);
   process.chdir(finalPath);
-  console.log("create-react-typescript-app:\n Borrando archivos innecesarios...",);
+  console.log("create-react-typescript-app:\n Removing unnecessary files...",);
   rimraf.sync("./.git");
   rimraf.sync("./.github");
   rimraf.sync("./.gitignore");
@@ -33,39 +33,38 @@ rl.question(`create-react-typescript-app:\n Input the name of your project (this
   rimraf.sync("./package-lock.json");
   rimraf.sync("./index.js");
   //
-  console.log("create-react-typescript-app:\n Renombrando la carpeta 'template' a 'docs' para evitar fallas en 'cra'...",);
-  execSync(`mv template docs`);
+  console.log("create-react-typescript-app:\n Renaming 'template' folder to 'docs' to avoid any problems with create-react-app script...",);
+  execSync(`mv template docs`, {stdio: 'inherit'});
   //
   // En este punto solo que la carpeta /docs
-  console.log("create-react-typescript-app:\n Volvemos al directorio previo: ", originalPath);
+  console.log("create-react-typescript-app:\n Going back to the original directory...: ", originalPath);
   process.chdir(originalPath);
-  console.log("create-react-typescript-app:\n running create-react-app");
+  console.log("create-react-typescript-app:\n running create-react-app:");
   try {
-    execSync(`npx create-react-app ${name} --template typescript`);
+    execSync(`npx create-react-app ${name} --template typescript`, {stdio: 'inherit'});
   } catch (e) {
-    console.log("create-react-typescript-app:\n create-react-app fallo:.", e);
+    console.log("create-react-typescript-app:\n create-react-app fails::.", e);
     process.exit(1);
   }
-  console.log("create-react-typescript-app:\n create-react-app exitoso...");
-  console.log("create-react-typescript-app:\n entramos al directorio...");
+  console.log("create-react-typescript-app:\n create-react-app successful...");
+  console.log("create-react-typescript-app:\n Going back to the project directory...");
   process.chdir(finalPath);
   //
-  // Mover template
+  // Move template
   const templatePath = path.join(finalPath, "docs")
-  console.log("create-react-typescript-app:\n Moviendo el contenido del template:", finalPath, templatePath);
-  execSync(`mv ${templatePath}/{,.[^.]}* ${finalPath}`);
-  console.log("create-react-typescript-app:\n Borrando 'docs' folder...",);
+  console.log("create-react-typescript-app:\n Copying the content of the template folder to the project folder:", finalPath, templatePath);
+  execSync(`cp -a ${templatePath}/. ${finalPath}/`, {stdio: 'inherit'});
+  console.log("create-react-typescript-app:\n Deleting 'docs' folder...",);
   rimraf.sync("./docs");
   rimraf.sync("./yarn.lock");
-  // // Instalar dev dependecies
-  console.log("create-react-typescript-app:\n Instalando nuevas dependencias con NPM... (Esto puede demorar)");
-  execSync(`npm i`);
-  execSync(`npm i --save-dev @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-config-airbnb-typescript eslint-config-prettier eslint-plugin-import eslint-plugin-jest eslint-plugin-jsdoc eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks husky lint-staged prettier prettier-eslint eslint-plugin-cypress`);
-  execSync(`npm i --save-dev @types/jest @types/node @types/react @types/react-dom @babel/preset-react @babel/preset-typescript`);
+  // // Install dependencies
+  console.log("create-react-typescript-app:\n Running 'npm i'... (this may take a while)");
+  execSync(`npm i`, {stdio: 'inherit'});
+  execSync(`npm i --save-dev @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-config-airbnb-typescript eslint-config-prettier eslint-plugin-import eslint-plugin-jest eslint-plugin-jsdoc eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks husky lint-staged prettier prettier-eslint eslint-plugin-cypress`, {stdio: 'inherit'});
+  execSync(`npm i --save-dev @types/jest @types/node @types/react @types/react-dom @babel/preset-react @babel/preset-typescript`, {stdio: 'inherit'});
 
-  // añadir husky y lint staged all package.json
-  const packageJson = require('./package.json');
-
+  // console.log("create-react-typescript-app:\n Adding Husky and Lint Staged to the 'package.json'");
+  const packageJson = require(path.join(finalPath, './package.json'));
   packageJson["husky"] = {
     "hooks": {
       "pre-commit": "npm run build && npm run test && lint-staged"
@@ -85,6 +84,6 @@ rl.question(`create-react-typescript-app:\n Input the name of your project (this
 });
 
 rl.on("close", function () {
-  console.log("\nENJOY !!!");
+  console.log("create-react-typescript-app:\n DONE!, enjoy your coding!");
   process.exit(0);
 });
