@@ -1,21 +1,23 @@
 {
-  "name": "cra-template-typescript",
-  "version": "1.0.0",
-  "description": "Cobuildlab React app Typescript template",
-  "homepage": "https://github.com/cobuildlab/cra-template-typescript#readme",
-  "author": "Cobuildlab",
-  "license": "MIT",
+  "name": "@cobuildlab/create-react-typescript-app",
+  "version": "0.0.1",
+  "description": "Create a React Typescript App with configurations and linters",
+  "homepage": "https://github.com/cobuildlab/create-react-typescript-app",
+  "author": "",
+  "license": "GPL-3.0",
+  "engines": {
+    "node": ">=12"
+  },
   "main": "template.json",
   "scripts": {
     "test": "test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cobuildlab/cra-template-typescript.git",
-    "directory": "packages/cra-template-typescript"
+    "url": "git+https://github.com/cobuildlab/create-react-typescript-app.git"
   },
   "bugs": {
-    "url": "https://github.com/cobuildlab/cra-template-typescript/issues"
+    "url": "https://github.com/cobuildlab/create-react-typescript-app/issues"
   },
   "keywords": [
     "react",
@@ -27,8 +29,11 @@
     "husky",
     "lint-staged"
   ],
+  "bin": "./index.js",
   "files": [
-    "template",
-    "template.json"
-  ]
+    "index.js"
+  ],
+  "dependencies": {
+    "rimraf": "^3.0.2"
+  }
 }

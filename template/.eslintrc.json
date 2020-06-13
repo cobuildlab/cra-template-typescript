@@ -19,7 +19,8 @@
     "prettier",
     "prettier/react",
     "prettier/@typescript-eslint",
-    "plugin:jsdoc/recommended"
+    "plugin:jsdoc/recommended",
+    "plugin:cypress/recommended"
   ],
   "plugins": [
     "@typescript-eslint",
@@ -29,7 +30,8 @@
     "prettier",
     "import",
     "jsdoc",
-    "jest"
+    "jest",
+    "cypress"
   ],
   "globals": {
     "JSX": true
