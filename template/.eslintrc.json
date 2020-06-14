@@ -12,8 +12,8 @@
   "extends": [
     "airbnb-typescript",
     "airbnb/hooks",
+    "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "react-app",
     "plugin:jsx-a11y/recommended",
     "prettier",
