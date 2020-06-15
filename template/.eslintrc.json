@@ -1,4 +1,5 @@
 {
+  "root": true,
   "env": {
     "browser": true,
     "commonjs": true,
@@ -10,24 +11,21 @@
     "project": "./tsconfig.json"
   },
   "extends": [
-    "airbnb-typescript",
-    "airbnb/hooks",
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
     "react-app",
+    "airbnb/hooks",
+    "airbnb-typescript",
+    "eslint:recommended",
+    "eslint-config-prettier",
+    "plugin:jest/recommended",
+    "plugin:cypress/recommended",
     "plugin:jsx-a11y/recommended",
-    "prettier",
-    "prettier/react",
-    "prettier/@typescript-eslint",
-    "plugin:jsdoc/recommended",
-    "plugin:cypress/recommended"
+    "plugin:@typescript-eslint/recommended"
   ],
   "plugins": [
     "@typescript-eslint",
     "react",
     "jsx-a11y",
     "react-hooks",
-    "prettier",
     "import",
     "jsdoc",
     "jest",
@@ -56,10 +54,7 @@
       }
     ],
     "@typescript-eslint/no-floating-promises": "off",
-    "@typescript-eslint/quotes": [
-      "error",
-      "single"
-    ],
+    "@typescript-eslint/quotes": ["error", "single"],
     "@typescript-eslint/explicit-function-return-type": [
       "error",
       {
@@ -76,41 +71,31 @@
         "typedefs": true
       }
     ],
-    "jsdoc/check-alignment": "error", // Recommended
-    "jsdoc/check-param-names": "error", // Recommended
-    "jsdoc/check-tag-names": "error", // Recommended
-    "jsdoc/check-types": "error", // Recommended
-    "jsdoc/implements-on-classes": "error", // Recommended
-    "jsdoc/newline-after-description": "error", // Recommended
-    "jsdoc/no-undefined-types": "error", // Recommended
+    "jsdoc/check-alignment": "error",
+    "jsdoc/check-param-names": "error",
+    "jsdoc/check-tag-names": "error",
+    "jsdoc/check-types": "error",
+    "jsdoc/implements-on-classes": "error",
+    "jsdoc/newline-after-description": "error",
+    "jsdoc/no-undefined-types": "error",
     "jsdoc/require-description-complete-sentence": "error",
     "jsdoc/require-hyphen-before-param-description": "error",
-    "jsdoc/require-jsdoc": "error", // Recommended
-    "jsdoc/require-param": "error", // Recommended
-    "jsdoc/require-param-description": "error", // Recommended
-    "jsdoc/require-param-name": "error", // Recommended
-    "jsdoc/require-param-type": "error", // Recommended
-    "jsdoc/require-returns": "error", // Recommended
-    "jsdoc/require-returns-check": "error", // Recommended
-    "jsdoc/require-returns-description": "error", // Recommended
-    "jsdoc/require-returns-type": "error", // Recommended
-    "jsdoc/valid-types": "error", // Recommended
-    "indent": [
-      "error",
-      2
-    ],
-    "semi": [
-      "error",
-      "always"
-    ],
+    "jsdoc/require-jsdoc": "error",
+    "jsdoc/require-param": "error",
+    "jsdoc/require-param-description": "error",
+    "jsdoc/require-param-name": "error",
+    "jsdoc/require-param-type": "off",
+    "jsdoc/require-returns": "error",
+    "jsdoc/require-returns-check": "error",
+    "jsdoc/require-returns-description": "error",
+    "jsdoc/require-returns-type": "off",
+    "jsdoc/valid-types": "error",
+    "indent": ["error", 2],
+    "semi": ["error", "always"],
     "no-console": [
       "error",
       {
-        "allow": [
-          "warn",
-          "error",
-          "log"
-        ]
+        "allow": ["warn", "error", "log"]
       }
     ],
     "no-unused-vars": [
@@ -127,6 +112,7 @@
     "react/destructuring-assignment": "off",
     "react/no-unused-prop-types": "error",
     "react/jsx-props-no-spreading": "off",
+    "react/jsx-closing-bracket-location": "off",
     "react/require-default-props": [
       "error",
       {
@@ -136,10 +122,7 @@
     "react/jsx-filename-extension": [
       "warn",
       {
-        "extensions": [
-          ".ts",
-          ".tsx"
-        ]
+        "extensions": [".ts", ".tsx"]
       }
     ]
   }
