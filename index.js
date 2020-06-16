@@ -60,21 +60,21 @@ rl.question(`create-react-typescript-app:\n Input the name of your project (this
   // // Install dependencies
   console.log("create-react-typescript-app:\n Running 'npm i'... (this may take a while)");
   execSync(`npm i`, {stdio: 'inherit'});
-  execSync(`npm i --save-dev @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-config-airbnb-typescript eslint-config-prettier eslint-plugin-import eslint-plugin-jest eslint-plugin-jsdoc eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks husky lint-staged prettier prettier-eslint eslint-plugin-cypress`, {stdio: 'inherit'});
+  execSync(`npm i --save-dev @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-config-airbnb-typescript eslint-config-prettier eslint-plugin-import eslint-plugin-jest eslint-plugin-jsdoc eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks husky lint-staged prettier eslint-plugin-cypress`, {stdio: 'inherit'});
   execSync(`npm i --save-dev @types/jest @types/node @types/react @types/react-dom @babel/preset-react @babel/preset-typescript`, {stdio: 'inherit'});
 
   // console.log("create-react-typescript-app:\n Adding Husky and Lint Staged to the 'package.json'");
   const packageJson = require(path.join(finalPath, './package.json'));
   packageJson["husky"] = {
     "hooks": {
-      "pre-commit": "npm run build && npm run test && lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "npm test && npm run build"
     }
   };
   packageJson["lint-staged"] = {
     "*.{js,ts,tsx,jsx}": [
       "prettier --write",
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ]
   };
 
