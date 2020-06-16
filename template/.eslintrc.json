@@ -15,7 +15,9 @@
     "airbnb/hooks",
     "airbnb-typescript",
     "eslint:recommended",
-    "eslint-config-prettier",
+    "prettier",
+    "prettier/react",
+    "prettier/@typescript-eslint",
     "plugin:jest/recommended",
     "plugin:cypress/recommended",
     "plugin:jsx-a11y/recommended",
@@ -112,7 +114,6 @@
     "react/destructuring-assignment": "off",
     "react/no-unused-prop-types": "error",
     "react/jsx-props-no-spreading": "off",
-    "react/jsx-closing-bracket-location": "off",
     "react/require-default-props": [
       "error",
       {
