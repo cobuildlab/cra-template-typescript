@@ -1,6 +1,6 @@
 {
   "name": "@cobuildlab/create-react-typescript-app",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Create a React Typescript App with configurations and linters",
   "homepage": "https://github.com/cobuildlab/create-react-typescript-app",
   "author": "",
