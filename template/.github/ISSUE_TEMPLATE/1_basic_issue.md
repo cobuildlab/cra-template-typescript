@@ -1,7 +1,7 @@
 ---
-name: 👉 Basic Issue
+name: 📝 Basic Issue
 about: Basic User Story Issue
-title: "VIEW: DETAIL"
+title: "[0 1 2 3 5 8 13 21] VIEW | DETAIL"
 ---
 
 ### User Story

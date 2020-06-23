@@ -1,12 +1,11 @@
 ---
 name: ⚙️ Backend Issue
-about: Cloud functions, end points, database work, etc.
-title: "EPIC: THIS_ISSUE"
+about: API, Cloud Functions, Database Work, etc.
+title: "CATEGORY: THIS_ISSUE"
 labels: Backend
 ---
 
 ### Summary
-**_Epic:_**  
 **_Description:_**  
 
 ### Technical Requirements

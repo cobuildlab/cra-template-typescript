@@ -1,7 +1,7 @@
 ---
 name: 💤 Backlog Item
 about: Nice-to-have items for the future
-title: "SCREEN: DETAIL"
+title: "SCREEN | DETAIL"
 labels: Backlog
 
 ---
