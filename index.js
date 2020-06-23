@@ -65,6 +65,9 @@ rl.question(`create-react-typescript-app:\n Input the name of your project (this
 
   // console.log("create-react-typescript-app:\n Adding Husky and Lint Staged to the 'package.json'");
   const packageJson = require(path.join(finalPath, './package.json'));
+
+  packageJson["scripts"].eslint = "eslint --ext .ts,.tsx ./src";
+
   packageJson["husky"] = {
     "hooks": {
       "pre-commit": "lint-staged",
